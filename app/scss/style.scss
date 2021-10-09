@@ -3,7 +3,57 @@
 @import 'reset';
 @import 'global';
 
+.header {
+  padding: 60px 0;
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
 
+.menu {
+  &__list {
+    display: flex;
+  }
+  &__item + .menu__item {
+    padding-left: 45px;
+  }
+  &__link {
+    color: $default;
+    transition: all .3s;
+    @extend %rubik-400;
+    &:hover {
+      color: $accent;
+    }
+  }
+  &__link--active {
+    color: $accent;
+  }
+}
+
+.user-nav {
+  display: flex;
+  &__link {
+    position: relative;
+  }
+  &__link + .user-nav__link {
+    padding-left: 36px;
+  }
+  &__num {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: $accent;
+    top: -6px;
+    right: -6px;
+    font-size: 10px;
+    color: #fff;
+    line-height: 14px;
+    text-align: center;
+  }
+}
 
 
 
