@@ -1,12 +1,26 @@
+html,
 body {
+  height: 100%;
+}
+
+body {
+  background-color: $bg;
   color: $default;
-  font-size: 18px;
-  line-height: 3;
+  font-size: 20px;
+  line-height: 1.5;
   @extend %rubik-400;
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  flex-grow: 1;
 }
 
 .container {
-  max-width: 1170px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 15px;
 }
+
+
