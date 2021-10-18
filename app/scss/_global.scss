@@ -4,11 +4,13 @@ body {
 }
 
 body {
-  background-color: $bg;
+  font-family: $font-rubic;
   color: $default;
   font-size: 20px;
+  font-weight: 400;
+  font-style: normal;
   line-height: 1.5;
-  @extend %rubik-400;
+  background-color: $bg;
   display: flex;
   flex-direction: column;
 }
@@ -22,5 +24,37 @@ body {
   margin: 0 auto;
   padding: 0 15px;
 }
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+@mixin line-clamp($font-size,
+  $line-height,
+  $line-to-show) {
+  @if unitless($line-height)==false {
+    $line-height: create-unitless-line-height($font-size, $line-height);
+  }
+
+  display: block;
+  display: -webkit-box;
+  font-size: $font-size+px;
+  max-height: ($font-size * $line-height * $line-to-show)+px;
+  line-height: $line-height;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $line-to-show;
+}
+
 
 

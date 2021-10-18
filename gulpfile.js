@@ -5,6 +5,7 @@ const concat       = require('gulp-concat');
 const autoprefixer = require('gulp-autoprefixer');
 const uglify       = require('gulp-uglify');
 const imagemin     = require('gulp-imagemin');
+const svgSprite    = require('gulp-svg-sprite');
 const del          = require('del');
 const browserSync  = require('browser-sync').create();
 
@@ -15,6 +16,18 @@ function browsersync() {
     },
     notify: false
   })
+}
+
+const svgSprites = () => {
+  return src('app/images/svg/*.svg')
+  .pipe(svgSprite({
+    mode: {
+      stack: {
+        sprite: "../sprite.svg"
+      }
+    },
+  }))
+  .pipe(dest('app/images'));
 }
 
 function styles() {
@@ -32,6 +45,7 @@ function styles() {
 function scripts() {
   return src([
     'node_modules/jquery/dist/jquery.js',
+    'node_modules/slick-carousel/slick/slick.js',
     'node_modules/mixitup/dist/mixitup.min.js',
     'app/js/main.js'
   ])
@@ -57,11 +71,17 @@ function images(){
   .pipe(dest('dist/images'))
 }
 
+const resources = () => {
+  return src('app/resources/**')
+  .pipe(dest('dist'))
+}
+
 function build() {
   return src([
     'app/**/*.html',
     'app/css/style.min.css',
-    'app/js/main.min.js'
+    'app/js/main.min.js',
+    'app/fonts/*.*'
   ], {base: 'app'}) 
   .pipe(dest('dist'))
   }
@@ -73,7 +93,9 @@ function build() {
 
 function watching() {
   watch(['app/scss/**/*.scss'], styles);
+  watch(['app/images/svg/*.svg'], svgSprites);
   watch(['app/js/**/*.js', '!app/js/main.min.js'], scripts);
+  watch(['app/resources/**'], resources);
   watch(['app/**/*.html']).on('change', browserSync.reload);
 }
 
@@ -84,5 +106,7 @@ exports.browsersync = browsersync;
 exports.watching = watching;
 exports.images = images;
 exports.cleanDist = cleanDist;
-exports.build = series(cleanDist, images, build);
-exports.default = parallel(styles, scripts, browsersync,watching); 
+exports.svgSprites = svgSprites;
+
+exports.build = series(cleanDist, images, resources, svgSprites, build);
+exports.default = parallel(styles, scripts, svgSprites, browsersync,watching); 
