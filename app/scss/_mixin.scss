@@ -1,0 +1,36 @@
+
+@mixin tablet {
+  @media (max-width: (900px)) {
+    @content;
+  }
+}
+
+@mixin small-tablet {
+  @media (max-width: (768px)) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (max-width: (576px)) {
+    @content;
+  }
+}
+
+@mixin line-clamp($font-size,
+  $line-height,
+  $line-to-show) {
+  @if unitless($line-height)==false {
+    $line-height: create-unitless-line-height($font-size, $line-height);
+  }
+
+  display: block;
+  display: -webkit-box;
+  font-size: $font-size+px;
+  max-height: ($font-size * $line-height * $line-to-show)+px;
+  line-height: $line-height;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $line-to-show;
+}
