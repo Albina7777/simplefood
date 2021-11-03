@@ -72,13 +72,15 @@ function images(){
 }
 
 const resources = () => {
-  return src('app/resources/**')
+  return src('app/**')
   .pipe(dest('dist'))
 }
 
 function build() {
   return src([
     'app/**/*.html',
+    'app/*.png',
+    'app/*.ico',
     'app/css/style.min.css',
     'app/js/main.min.js',
     'app/fonts/*.*'
