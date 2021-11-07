@@ -16,6 +16,89 @@
   @include mobile {
     padding: 15px 0;
   }
+
+  &__user {
+    display: flex;
+
+    @include mobile {
+      margin-right: 10px;
+    }
+  }
+
+  &__btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 5px;
+    position: relative;
+    transition: color 0.4s, stroke 0.4s, background-color 0.4s ease, box-shadow 0.4s;
+
+    &:hover {
+      background-color: $accent;
+
+      svg {
+        stroke: $white;
+      }
+
+      .header__num {
+        background-color: $white;
+        color: $accent;
+      }
+    }
+
+    &:focus {
+      background-color: rgba($coral, 0.1);
+      box-shadow: 0 0 0 2px rgba($accent, 0.7);
+      outline: transparent;
+    }
+
+    &:active {
+      background-color: $soap;
+      box-shadow: none;
+
+      svg {
+        stroke: $darkBlue-900;
+      }
+
+      .header__num {
+        background-color: $accent;
+        color: $white;
+      }
+    }
+
+    svg {
+      position: absolute;
+      left: 12px;
+      top: 12px;
+      width: 19px;
+      height: 20px;
+      stroke: $darkBlue-900;
+      stroke-width: 1.5;
+    }
+  }
+
+  &__num {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: $accent;
+    top: 8px;
+    right: 4px;
+    font-size: 10px;
+    color: $white;
+    line-height: 1.5;
+    text-align: center;
+    opacity: 0;
+    transition: color 0.4s, background-color 0.4s ease, opacity 0.4s;
+
+    &--visible {
+      opacity: 1;
+    }
+  }
+
+  &__item:not(:last-child) {
+    margin-right: 10px;
+  }
 }
 
 .menu__mobile {
@@ -33,7 +116,7 @@
     border-top: 1px solid $gray;
     padding: 100px 0 0 15px;
     transform: translateY(-200%);
-    transition: transform 0.7s;
+    transition: transform 0.4s;
 
     @include mobile {
       padding-top: 80px;
@@ -115,29 +198,24 @@
 }
 
 .logo {
-  margin: 0 auto 0 0;
+  margin-right: auto;
+  transition: opacity 0.4s,
+    box-shadow 0.4s ease;
+
+  &__img {
+    object-fit: contain;
+  }
 
   @include tablet {
     z-index: 2;
   }
-
-  @include mobile {
-    width: 115px;
-    height: 23px;
-    padding-bottom: 40px;
-  }
-}
-
-.logo,
-.footer__logo {
-  transition: opacity 0.4s, box-shadow 0.4s ease;
 
   &:hover {
     opacity: 0.8;
   }
 
   &:focus {
-    box-shadow: 0 0 0 2px $accent;
+    box-shadow: 0 0 0 2px rgba($accent, 0.7);
     border-radius: 5px;
     outline: transparent;
   }
@@ -146,80 +224,25 @@
     opacity: 0.5;
     box-shadow: none;
   }
-}
 
-.user {
-  display: flex;
-
-  @include mobile {
-    margin-right: 10px;
+  &__footer {
+    margin-bottom: 30px;
+    display: block;
   }
 
-  &__btn {
-    width: 44px;
-    height: 44px;
-    position: relative;
+  &__mobile {
 
-    &:hover {
-      background-color: $accent;
-      border-radius: 5px;
-    }
-
-    &:focus {
-      background-color: $coral;
-      border-radius: 5px;
-      box-shadow: 0 0 0 2px $accent;
-      outline: transparent;
-    }
-
-    &:active {
-      background-color: $coral;
-      box-shadow: none;
-      border-radius: 5px;
-    }
-
-    svg {
-      position: absolute;
-      left: 12px;
-      top: 12px;
-      width: 19px;
-      height: 20px;
-      stroke: $darkBlue-900;
-      stroke-width: 1.5;
-
-      &:hover {
-        stroke: $white;
-      }
+    @include mobile {
+      width: 115px;
+      height: 23px;
+      z-index: 0;
     }
   }
 
-  &__num {
+  &__menu {
     position: absolute;
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    background-color: $accent;
-    top: 8px;
-    right: 4px;
-    font-size: 10px;
-    color: $white;
-    line-height: 1.5;
-    text-align: center;
-    opacity: 0;
+    top: 18px;
 
-    &:hover {
-      background-color: $white;
-      color: $accent;
-    }
-
-    &--visible {
-      opacity: 1;
-      /*так должно работать?*/
-    }
-  }
-
-  &__item:not(:last-child) {
-    margin-right: 10px;
   }
 }
 
@@ -257,13 +280,13 @@
     }
 
     &:focus {
-      box-shadow: 0 0 0 2px $accent;
+      box-shadow: 0 0 0 2px rgba($accent, 0.7);
       border-radius: 5px;
       outline: transparent;
     }
 
     &:active {
-      text-shadow: 2px 2px 5px rgba(49, 53, 43, 0.5);
+      text-shadow: 2px 2px 5px rgba($default, 0.5);
       color: $default;
       box-shadow: none;
     }
@@ -314,7 +337,7 @@ body.overlay--active:before {
     display: flex;
     align-items: center;
     position: relative;
-    z-index: -1;
+    z-index: 1;
 
     @include mobile {
       height: 300px;
@@ -328,7 +351,7 @@ body.overlay--active:before {
         top: 0;
         right: 0;
         left: 0;
-        z-index: 1;
+        z-index: 2;
       }
     }
   }
@@ -337,7 +360,7 @@ body.overlay--active:before {
     max-width: 450px;
     width: 100%;
     display: inline-block;
-    z-index: 4;
+    z-index: 2;
   }
 
   &__title {
@@ -382,13 +405,6 @@ body.overlay--active:before {
       padding: 8px 24px;
       margin-right: 26px;
     }
-
-    &:hover {
-      background-color: $white;
-      color: $accent;
-      box-shadow: 0 0 0 2px $accent;
-      /*прозрачность 0.7 не работает*/
-    }
   }
 
   &__link {
@@ -405,12 +421,12 @@ body.overlay--active:before {
     }
 
     &:focus {
-      box-shadow: 0 0 0 2px $accent;
+      box-shadow: 0 0 0 2px rgba($accent, 0.7);
       outline: transparent;
     }
 
     &:active {
-      text-shadow: 2px 2px 5px rgba(54, 56, 83, 0.5);
+      text-shadow: 2px 2px 5px rgba($default, 0.5);
       color: $default;
       box-shadow: none;
     }
@@ -467,6 +483,24 @@ body.overlay--active:before {
     box-shadow: 0 0 0 1px $silver-200;
     position: relative;
     padding: 22px 32px 22px 86px;
+    border-radius: 5px;
+    transition: color 0.4s, background-color 0.4s, box-shadow 0.4s;
+
+    &:hover {
+      background-color: rgba($coral, 0.1);
+      color: $accent;
+      box-shadow: 0 0 0 2px rgba($accent, 0.7);
+    }
+
+    &:focus {
+      background-color: $white;
+      color: $darkBlue-900;
+      box-shadow: 0 0 0 2px rgba($accent, 0.7);
+    }
+
+    &:active {
+      box-shadow: inset 0px -5px 12px rgba($accent, 0.2);
+    }
 
     @include mobile {
       font-size: 14px;
@@ -484,32 +518,22 @@ body.overlay--active:before {
       width: 44px;
       height: 44px;
       fill: currentColor;
-      transition: color 0.4s;
 
       @include mobile {
         width: 20px;
         height: 20px;
         left: 16px;
       }
+    }
 
-      &:hover {
-        color: $accent;
-      }
-
-      &:focus {
-        color: $darkBlue-900;
-      }
-
-      &:active {
-        color: $darkBlue-900;
-      }
+    &--active {
+      background-color: $accent;
+      color: $white;
     }
   }
 
   &__content {
-    display: grid;
     grid-template-columns: repeat(5, 1fr);
-    grid-gap: 30px;
     grid-auto-rows: 299px;
     margin-bottom: 60px;
 
@@ -557,29 +581,22 @@ body.overlay--active:before {
     }
 
     &:focus {
-      box-shadow: 0 0 0 2px $accent;
+      box-shadow: 0 0 0 2px rgba($accent, 0.7);
       color: $darkBlue-900;
     }
 
     &:active {
-      text-shadow: 2px 2px 5px rgba(54, 56, 83, 0.5);
+      text-shadow: 2px 2px 5px rgba($default, 0.5);
       box-shadow: none;
     }
   }
 }
 
-/*&--active {
-      background-color: $accent;
-      color: $white;
-    }не нужно чтобы горела кнопка?*/
-
-
 .product-card {
   padding: 20px 14px;
   display: flex;
-  justify-content: space-around;
   flex-direction: column;
-  height: 299px;
+  height: 100%;
   align-items: center;
   background-color: $white;
   box-shadow: 0 0 0 1px $silver-200;
@@ -587,7 +604,7 @@ body.overlay--active:before {
   transition: box-shadow 0.4s ease;
 
   &:hover {
-    box-shadow: 0 0 0 1px $accent;
+    box-shadow: 0 0 0 2px rgba($accent, 0.7);
   }
 
   &__price {
@@ -595,16 +612,15 @@ body.overlay--active:before {
     font-size: 15px;
     line-height: 1.4;
     color: $darkBlue-900;
-    margin-bottom: 10px;
+    margin: auto 0;
   }
 
   &__photo {
     display: inline;
-    margin-bottom: 10px;
   }
 
   &__title {
-    margin-bottom: 10px;
+    margin: auto 0;
     font-weight: 400;
     @include line-clamp(15, 1, 2);
   }
@@ -627,7 +643,8 @@ body.overlay--active:before {
   }
 
   &__container {
-    width: 1030px;
+    max-width: 1030px;
+    width: 100%;
     height: 585px;
     background-repeat: no-repeat;
     padding: 0;
@@ -637,7 +654,8 @@ body.overlay--active:before {
     position: relative;
 
     @include mobile {
-      width: 349px;
+      max-width: 349px;
+      width: 100%;
       height: 462px;
       padding-top: 27px;
       display: block;
@@ -687,6 +705,7 @@ body.overlay--active:before {
 
   &__text {
     margin-bottom: 30px;
+    @include line-clamp(20, 1.5, 3);
 
     @include mobile {
       font-size: 16px;
@@ -699,6 +718,7 @@ body.overlay--active:before {
     color: $darkBlue-900;
     padding-left: 64px;
     position: relative;
+    background-size: contain;
 
     @include mobile {
       font-size: 18px;
@@ -712,6 +732,7 @@ body.overlay--active:before {
       height: 34px;
       left: 0;
       bottom: 0;
+      background-size: contain;
 
       @include mobile {
         left: 3px;
@@ -735,8 +756,8 @@ body.overlay--active:before {
       background-image: url("../images/icons/delivery.svg");
     }
 
-    &--resturent::before {
-      background-image: url("../images/icons/resturent.svg");
+    &--restaurant::before {
+      background-image: url("../images/icons/restaurant.svg");
     }
   }
 
@@ -754,7 +775,7 @@ body.overlay--active:before {
   }
 }
 
-.best-restauran {
+.best-restaurant {
   padding-bottom: 120px;
 
   @include small-tablet {
@@ -783,10 +804,8 @@ body.overlay--active:before {
   }
 
   &__content {
-    display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-auto-rows: 419px;
-    grid-gap: 30px;
 
     @include tablet {
       grid-template-columns: repeat(2, 1fr);
@@ -802,18 +821,20 @@ body.overlay--active:before {
   }
 }
 
-.restauran-cart {
+.restaurant-card {
   height: 419px;
   background-color: $white;
   border-radius: 10px;
   transition: box-shadow 0.4s ease;
 
   &:hover {
-    box-shadow: 0 3px 15px rgba(255, 104, 56, 0.5);
+    box-shadow: 0 3px 15px rgba($accent, 0.5);
   }
 
   &__photo {
     margin-bottom: 15px;
+    object-fit: cover;
+    /*тут это больше подходит?*/
   }
 
   &__title {
@@ -870,7 +891,7 @@ body.overlay--active:before {
     &:hover {
       background-color: $white;
       color: $accent;
-      box-shadow: 0 0 0 2px $accent;
+      box-shadow: 0 0 0 2px rgba($accent, 0.7);
 
       svg {
         transform: translateX(20px);
@@ -880,7 +901,7 @@ body.overlay--active:before {
     &:focus {
       background-color: $soap;
       color: $accent;
-      box-shadow: 0 0 0 2px $accent;
+      box-shadow: 0 0 0 2px rgba($accent, 0.7);
     }
 
     &:active {
@@ -890,7 +911,7 @@ body.overlay--active:before {
   }
 }
 
-.reviews {
+.customer-reviews {
   padding-bottom: 131px;
 
   @include small-tablet {
@@ -931,6 +952,7 @@ body.overlay--active:before {
   &__photo {
     border-radius: 50%;
     margin-right: 40px;
+    object-fit: cover;
 
     @include mobile {
       width: 100px;
@@ -951,12 +973,16 @@ body.overlay--active:before {
       padding: 0 37px;
     }
 
-    &::before {
+    &::before,
+    &::after {
       content: "";
       position: absolute;
-      background-image: url("../images/icons/open.svg");
       width: 24px;
       height: 20px;
+    }
+
+    &::before {
+      background-image: url("../images/icons/open.svg");
       left: -2px;
       top: 1px;
 
@@ -967,13 +993,9 @@ body.overlay--active:before {
     }
 
     &::after {
-      content: "";
-      position: absolute;
       background-image: url("../images/icons/close.svg");
-      width: 24px;
-      height: 20px;
       right: 1px;
-      bottom: 87px;
+      bottom: 35px;
 
       @include mobile {
         bottom: 82px;
@@ -986,6 +1008,7 @@ body.overlay--active:before {
 .quote {
   font-weight: 400;
   font-style: italic;
+  @include line-clamp(20, 1.5, 6);
 
   @include mobile {
     font-size: 14px;
@@ -995,6 +1018,7 @@ body.overlay--active:before {
     display: block;
     font-style: normal;
     font-weight: 500;
+    line-height: 1.3;
     color: $accent;
     margin-top: 30px;
 
@@ -1004,7 +1028,7 @@ body.overlay--active:before {
     }
   }
 
-  &__add {
+  &__description {
     display: block;
     font-weight: 400;
     font-size: 14px;
@@ -1038,7 +1062,7 @@ body.overlay--active:before {
       }
 
       &:focus {
-        box-shadow: 0 0 0 2px $accent;
+        box-shadow: 0 0 0 2px rgba($accent, 0.7);
       }
 
       &:active {
@@ -1063,6 +1087,38 @@ body.overlay--active:before {
   position: absolute;
   transition: border 0.4s, background-color 0.4s, box-shadow 0.4s ease;
 
+  svg {
+    width: 13px;
+    height: 23px;
+    fill: $gray;
+    transition: fill 0.4s;
+  }
+
+  &:hover {
+    background-color: $soap;
+    border-color: $monaLisa;
+    fill: $monaLisa;
+
+    svg {
+      fill: $monaLisa;
+    }
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 2px rgba($accent, 0.7);
+    border-color: $gray;
+  }
+
+  &:active {
+    box-shadow: none;
+    background-color: $soap;
+    border: transparent;
+
+    svg {
+      fill: $coral;
+    }
+  }
+
   &--prev {
     left: 38.5%;
     bottom: -3%;
@@ -1080,37 +1136,6 @@ body.overlay--active:before {
     @include mobile {
       left: 76%;
       bottom: 84%;
-    }
-  }
-
-  svg {
-    width: 13px;
-    height: 23px;
-    fill: $gray;
-    transition: fill 0.4s;
-  }
-
-  &:hover {
-    background-color: $soap;
-    border-color: $monaLisa;
-
-    svg {
-      fill: $monaLisa;
-    }
-  }
-
-  &:focus {
-    box-shadow: 0 0 0 2px $accent;
-    border-color: $gray;
-  }
-
-  &:active {
-    box-shadow: none;
-    background-color: $soap;
-    border: transparent;
-
-    svg {
-      fill: $coral;
     }
   }
 }
@@ -1131,6 +1156,8 @@ body.overlay--active:before {
   }
 
   &__photo {
+    object-fit: cover;
+
     @include mobile {
       display: none;
     }
@@ -1166,6 +1193,7 @@ body.overlay--active:before {
 
   &__text {
     margin-bottom: 30px;
+    @include line-clamp(20, 1.5, 5);
 
     @include mobile {
       font-size: 14px;
@@ -1190,10 +1218,6 @@ body.overlay--active:before {
 }
 
 .footer {
-  &__logo {
-    margin-bottom: 30px;
-    display: block;
-  }
 
   &__inner {
     margin-bottom: 71px;
@@ -1206,7 +1230,7 @@ body.overlay--active:before {
     }
 
     @include mobile {
-      display: block;
+      align-items: flex-start;
       margin-bottom: 46px;
     }
   }
@@ -1222,6 +1246,7 @@ body.overlay--active:before {
 
     @include mobile {
       margin-bottom: 30px;
+      order: 1;
     }
   }
 
@@ -1245,6 +1270,7 @@ body.overlay--active:before {
 
     @include mobile {
       column-count: 1;
+      order: 3;
     }
   }
 
@@ -1265,13 +1291,13 @@ body.overlay--active:before {
     }
 
     &:focus {
-      box-shadow: 0 0 0 2px $accent;
+      box-shadow: 0 0 0 2px rgba($accent, 0.7);
       border-radius: 5px;
       outline: transparent;
     }
 
     &:active {
-      text-shadow: 2px 2px 5px rgba(49, 53, 43, 0.5);
+      text-shadow: 2px 2px 5px rgba($default, 0.5);
       color: $default;
       box-shadow: none;
     }
@@ -1287,28 +1313,21 @@ body.overlay--active:before {
 }
 
 .contacts {
+
+  &__footer {
+
+    @include mobile {
+      margin-bottom: 26px;
+      order: 2;
+    }
+  }
+
   &__menu {
     display: none;
 
     @include tablet {
       display: block;
       border-top: 1px solid #EEEFF3;
-    }
-  }
-
-  &__footer {
-
-    @include mobile {
-      display: none;
-    }
-  }
-
-  &__mobile {
-    display: none;
-
-    @include mobile {
-      display: block;
-      margin-bottom: 26px;
     }
   }
 
@@ -1330,6 +1349,7 @@ body.overlay--active:before {
       height: 24px;
       left: 0;
       bottom: 0;
+      background-size: contain;
     }
 
     &--location::before {
@@ -1354,93 +1374,94 @@ body.overlay--active:before {
     margin-right: 13px;
   }
 
+  &__contact {
+    background-color: $silver-200;
+    border-radius: 50%;
+    width: 39px;
+    height: 39px;
+    transition: background-color 0.4s, box-shadow 0.4s, filter 0.4s;
+
+    &:hover {
+      background-color: $accent;
+
+      .contacts__links {
+        filter: invert(100%) sepia(93%) saturate(28%) hue-rotate(99deg) brightness(105%) contrast(109%);
+      }
+    }
+
+    &:focus {
+      background-color: $soap;
+      box-shadow: 0 0 0 2px rgba($accent, 0.7);
+
+      .contacts__links {
+        filter: invert(14%) sepia(18%) saturate(557%) hue-rotate(42deg) brightness(92%) contrast(82%);
+      }
+    }
+
+    &:active {
+      background-color: $soap;
+      box-shadow: none;
+
+      .contacts__links {
+        filter: invert(43%) sepia(95%) saturate(989%) hue-rotate(337deg) brightness(103%) contrast(101%);
+      }
+    }
+  }
+
   &__links {
     display: block;
     background-repeat: no-repeat;
     background-position: center;
     outline: transparent;
-    width: 39px;
-    height: 39px;
-    border-radius: 50%;
-
-    &:hover {
-      filter: invert(100%) sepia(93%) saturate(28%) hue-rotate(99deg) brightness(105%) contrast(109%);
-    }
-
-    &:focus {
-      filter: invert(18%) sepia(16%) saturate(427%) hue-rotate(42deg) brightness(97%) contrast(93%);
-    }
-
-    &:active {
-      filter: invert(43%) sepia(95%) saturate(989%) hue-rotate(337deg) brightness(103%) contrast(101%);
-    }
-  }
-
-  &__contact {
-    background-color: $silver-200;
-    border-radius: 50%;
-    transition: background-color 0.4s, box-shadow 0.4s;
-
-    &:hover {
-      background-color: $accent;
-    }
-
-    &:focus {
-      background-color: $coral;
-      /*при фокусе и эктив фон не работает как надо*/
-      box-shadow: $accent;
-    }
-
-    &:active {
-      background-color: $coral;
-      box-shadow: none;
-    }
+    width: inherit;
+    height: inherit;
   }
 }
 
-.form__data {
-  max-width: 200px;
-  /*если задаю форме, инпут выходит за пределы*/
-  width: 100%;
-  background-color: $white;
-  border: 1px solid $gray;
-  border-radius: 5px;
-  padding: 6px 15px 7px;
-  margin-bottom: 12px;
-  transition: border-color 0.4s;
+.form {
 
-  &:hover::placeholder {
-    color: $darkBlue-900;
+  &__data {
+    width: 100%;
+    background-color: $white;
+    border: 1px solid $gray;
+    border-radius: 5px;
+    padding: 6px 15px 7px;
+    margin-bottom: 12px;
+    transition: border-color 0.4s;
+
+    &:hover::placeholder {
+      color: $darkBlue-900;
+    }
+
+    &:focus {
+      border-color: $accent;
+      outline: transparent;
+    }
+
+    &::placeholder {
+      color: $gray;
+      font-size: 14px;
+      line-height: 1.3;
+      transition: color 0.4s;
+    }
   }
 
-  &:focus {
-    border-color: $accent;
-    outline: transparent;
-  }
-
-  &::placeholder {
-    color: $gray;
+  &__btn {
+    font-weight: 500;
     font-size: 14px;
-    line-height: 1.3;
-    transition: color 0.4s;
-  }
-}
+    padding: 13px 39px 13px 70px;
+    position: relative;
 
-.form__btn {
-  font-weight: 500;
-  font-size: 14px;
-  padding: 13px 39px 13px 70px;
-  position: relative;
+    svg {
+      position: absolute;
+      left: 40px;
+      width: 17px;
+      height: 16px;
+      fill: currentColor;
 
-  svg {
-    position: absolute;
-    left: 40px;
-    width: 17px;
-    height: 16px;
-    fill: currentColor;
-
-    &:active {
-      color: $accent;
+      &:active {
+        color: $accent;
+      }
     }
   }
 }

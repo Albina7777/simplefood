@@ -17,6 +17,9 @@
   <header class="header">
 
     <nav class="menu__mobile">
+      <a class="logo logo__menu" href="#">
+        <img class="logo__img" src="images/logo.svg" width="200" height="39" alt="логотип SimpleFood">
+      </a>
       <button class="burger-cross" type="button">
         <span class="burger-cross__one"></span>
         <span class="burger-cross__two"></span>
@@ -38,35 +41,35 @@
             Контакты
           </a>
         </li>
-        <div class="contacts contacts__menu">
-          <address class="contacts__address">
-            <p class="contacts__text contacts__text--location">ул. Смирнова 2/3</p>
-            <a class="contacts__phone contacts__phone--calling" href="tel:79068057043">79068057043</a>
-            <a class="contacts__post contacts__post--message" href="mailto:support@sfood.com">support@sfood.com</a>
-          </address>
-          <ul class="contacts__social">
-            <li class="contacts__contact">
-              <a class="contacts__links" href="#" style="background-image: url('images/icons/facebook.svg');" target="blank">
-                <span class=" sr-only">фэйсбук</span>
-              </a>
-            </li>
-            <li class="contacts__contact">
-              <a class="contacts__links" href="#" style="background-image: url('images/icons/twitter.svg');" target="blank">
-                <span class="sr-only">твиттер</span>
-              </a>
-            </li>
-            <li class="contacts__contact">
-              <a class="contacts__links" href="#" style="background-image: url('images/icons/instagram.svg');" target="blank">
-                <span class="sr-only">инстаграмм</span>
-              </a>
-            </li>
-          </ul>
-        </div>
       </ul>
+      <div class="contacts contacts__menu">
+        <address class="contacts__address">
+          <p class="contacts__text contacts__text--location">ул. Смирнова 2/3</p>
+          <a class="contacts__phone contacts__phone--calling" href="tel:79068057043">79068057043</a>
+          <a class="contacts__post contacts__post--message" href="mailto:support@sfood.com">support@sfood.com</a>
+        </address>
+        <ul class="contacts__social">
+          <li class="contacts__contact">
+            <a class="contacts__links" href="#" style="background-image: url('images/icons/facebook.svg');" target="_blank">
+              <span class=" sr-only">фэйсбук</span>
+            </a>
+          </li>
+          <li class="contacts__contact">
+            <a class="contacts__links" href="#" style="background-image: url('images/icons/twitter.svg');" target="_blank">
+              <span class="sr-only">твиттер</span>
+            </a>
+          </li>
+          <li class="contacts__contact">
+            <a class="contacts__links" href="#" style="background-image: url('images/icons/instagram.svg');" target="_blank">
+              <span class="sr-only">инстаграмм</span>
+            </a>
+          </li>
+        </ul>
+      </div>
     </nav>
     <div class="container">
       <nav class="menu">
-        <a class="logo" href="#">
+        <a class="logo logo__mobile" href="#">
           <img class="logo__img" src="images/logo.svg" width="200" height="39" alt="логотип SimpleFood">
         </a>
         <ul class="menu__list">
@@ -86,22 +89,22 @@
             </a>
           </li>
         </ul>
-        <ul class="user">
-          <li class="user__item">
-            <button class="user__btn" type="button">
+        <ul class="header__user">
+          <li class="header__item">
+            <button class="header__btn" type="button">
               <span class="sr-only">поиск</span>
               <svg>
                 <use xlink:href="images/sprite.svg#search"></use>
               </svg>
             </button>
           </li>
-          <li class="user__item">
-            <button class="user__btn" type="button">
+          <li class="header__item">
+            <button class="header__btn" type="button">
               <span class="sr-only">корзина</span>
               <svg>
                 <use xlink:href="images/sprite.svg#cart"></use>
               </svg>
-              <span class="user__num user__num--visible">4</span>
+              <span class="header__num header__num--visible">4</span>
             </button>
           </li>
         </ul>
@@ -178,7 +181,7 @@
             </button>
           </li>
         </ul>
-        <ul class="popular-product__content">
+        <ul class="popular-product__content grid">
           <li class="mix category-a">
             <article class="product-card">
               <img class="product-card__photo" src="images/content/1.jpg" width="140" height="140" alt="чизбургер с листьями салата">
@@ -283,7 +286,7 @@
             <li class="service__item service__item--delivery">
               Вежливые курьеры
             </li>
-            <li class="service__item service__item--resturent">
+            <li class="service__item service__item--restaurant">
               Более 500 заведений
             </li>
           </ul>
@@ -292,76 +295,76 @@
       </div>
     </section>
 
-    <section class="best-restauran">
+    <section class="best-restaurant">
       <div class="container">
-        <h2 class="title best-restauran__title">Лучшие рестораны</h2>
-        <ul class="best-restauran__content">
-          <li class="best-restauran__item">
-            <article class="restauran-cart">
-              <img class="restauran-cart__photo" src="images/content/rest1.jpg" width="370" height="300" alt="пицца">
-              <h3 class="restauran-cart__title">Blaze Pizza</h3>
-              <span class="restauran-cart__time">11:00 - 22:00</span>
-              <a class="restauran-cart__link" href="#">
+        <h2 class="title best-restaurant__title">Лучшие рестораны</h2>
+        <ul class="best-restaurant__content grid">
+          <li class="best-restaurant__item">
+            <article class="restaurant-card">
+              <img class="restaurant-card__photo" src="images/content/rest1.jpg" width="370" height="300" alt="пицца">
+              <h3 class="restaurant-card__title">Blaze Pizza</h3>
+              <span class="restaurant-card__time">11:00 - 22:00</span>
+              <a class="restaurant-card__link" href="#">
                 <svg>
                   <use xlink:href="images/sprite.svg#vector"></use>
                 </svg>
               </a>
             </article>
           </li>
-          <li class="best-restauran__item">
-            <article class="restauran-cart">
-              <img class="restauran-cart__photo" src="images/content/rest2.jpg" width="370" height="300" alt="пицца">
-              <h3 class="restauran-cart__title">Pizza Runcho</h3>
-              <span class="restauran-cart__time">12:00 - 21:00</span>
-              <a class="restauran-cart__link" href="#">
+          <li class="best-restaurant__item">
+            <article class="restaurant-card">
+              <img class="restaurant-card__photo" src="images/content/rest2.jpg" width="370" height="300" alt="пицца">
+              <h3 class="restaurant-card__title">Pizza Runcho</h3>
+              <span class="restaurant-card__time">12:00 - 21:00</span>
+              <a class="restaurant-card__link" href="#">
                 <svg>
                   <use xlink:href="images/sprite.svg#vector"></use>
                 </svg>
               </a>
             </article>
           </li>
-          <li class="best-restauran__item">
-            <article class="restauran-cart">
-              <img class="restauran-cart__photo" src="images/content/rest3.jpg" width="370" height="300" alt="пицца">
-              <h3 class="restauran-cart__title">Pizza Hut</h3>
-              <span class="restauran-cart__time">11:00 - 22:00</span>
-              <a class="restauran-cart__link" href="#">
+          <li class="best-restaurant__item">
+            <article class="restaurant-card">
+              <img class="restaurant-card__photo" src="images/content/rest3.jpg" width="370" height="300" alt="пицца">
+              <h3 class="restaurant-card__title">Pizza Hut</h3>
+              <span class="restaurant-card__time">11:00 - 22:00</span>
+              <a class="restaurant-card__link" href="#">
                 <svg>
                   <use xlink:href="images/sprite.svg#vector"></use>
                 </svg>
               </a>
             </article>
           </li>
-          <li class="best-restauran__item">
-            <article class="restauran-cart">
-              <img class="restauran-cart__photo" src="images/content/rest4.jpg" width="370" height="300" alt="гамбургер">
-              <h3 class="restauran-cart__title">McDonald`s</h3>
-              <span class="restauran-cart__time">06:00 - 23:00</span>
-              <a class="restauran-cart__link" href="#">
+          <li class="best-restaurant__item">
+            <article class="restaurant-card">
+              <img class="restaurant-card__photo" src="images/content/rest4.jpg" width="370" height="300" alt="гамбургер">
+              <h3 class="restaurant-card__title">McDonald`s</h3>
+              <span class="restaurant-card__time">06:00 - 23:00</span>
+              <a class="restaurant-card__link" href="#">
                 <svg>
                   <use xlink:href="images/sprite.svg#vector"></use>
                 </svg>
               </a>
             </article>
           </li>
-          <li class="best-restauran__item">
-            <article class="restauran-cart">
-              <img class="restauran-cart__photo" src="images/content/rest5.jpg" width="370" height="300" alt="картошка-фри">
-              <h3 class="restauran-cart__title">KFC</h3>
-              <span class="restauran-cart__time">06:00 - 23:30</span>
-              <a class="restauran-cart__link" href="#">
+          <li class="best-restaurant__item">
+            <article class="restaurant-card">
+              <img class="restaurant-card__photo" src="images/content/rest5.jpg" width="370" height="300" alt="картошка-фри">
+              <h3 class="restaurant-card__title">KFC</h3>
+              <span class="restaurant-card__time">06:00 - 23:30</span>
+              <a class="restaurant-card__link" href="#">
                 <svg>
                   <use xlink:href="images/sprite.svg#vector"></use>
                 </svg>
               </a>
             </article>
           </li>
-          <li class="best-restauran__item">
-            <article class="restauran-cart">
-              <img class="restauran-cart__photo" src="images/content/rest6.jpg" width="370" height="300" alt="гамбургер">
-              <h3 class="restauran-cart__title">Star Burgers</h3>
-              <span class="restauran-cart__time">09:00 - 21:00</span>
-              <a class="restauran-cart__link" href="#">
+          <li class="best-restaurant__item">
+            <article class="restaurant-card">
+              <img class="restaurant-card__photo" src="images/content/rest6.jpg" width="370" height="300" alt="гамбургер">
+              <h3 class="restaurant-card__title">Star Burgers</h3>
+              <span class="restaurant-card__time">09:00 - 21:00</span>
+              <a class="restaurant-card__link" href="#">
                 <svg>
                   <use xlink:href="images/sprite.svg#vector"></use>
                 </svg>
@@ -372,21 +375,21 @@
       </div>
     </section>
 
-    <section class="reviews">
-      <div class="container reviews__container">
-        <h2 class="title reviews__title">
+    <section class="customer-reviews">
+      <div class="container customer-reviews__container">
+        <h2 class="title customer-reviews__title">
           Отзывы клиентов
         </h2>
-        <ul class="reviews__inner">
-          <li class="reviews__item">
-            <img class="reviews__photo" src="images/img/girl.jpg" width="300" height="300" alt="Дарья - ценитель вкусной еды">
-            <div class="reviews__content">
+        <ul class="customer-reviews__inner">
+          <li class="customer-reviews__item">
+            <img class="customer-reviews__photo" src="images/img/girl.jpg" width="300" height="300" alt="Дарья - ценитель вкусной еды">
+            <div class="customer-reviews__content">
               <blockquote class="quote">
                 <p>
                   SimpleFood - одна из лучших служб доставки продуктов из ресторанов в городе. Очень удобный сайт и приложение. Их доставщики очень вежливы и пунктуальны. Компания часто проводит акции и дарит скидки на доставку - однозначно рекомендую!
                   <cite class="quote__author">
                     Дарья
-                    <span class="quote__add">
+                    <span class="quote__description">
                       Ценитель вкусной еды
                     </span>
                   </cite>
@@ -394,15 +397,15 @@
               </blockquote>
             </div>
           </li>
-          <li class="reviews__item">
-            <img class="reviews__photo" src="images/img/girl.jpg" width="300" height="300" alt="девушка с гамбургером">
-            <div class="reviews__content">
+          <li class="customer-reviews__item">
+            <img class="customer-reviews__photo" src="images/img/girl.jpg" width="300" height="300" alt="девушка с гамбургером">
+            <div class="customer-reviews__content">
               <blockquote class="quote">
                 <p>
                   SimpleFood - одна из лучших служб доставки продуктов из ресторанов в городе. Очень удобный сайт и приложение. Их доставщики очень вежливы и пунктуальны. Компания часто проводит акции и дарит скидки на доставку - однозначно рекомендую!
                   <cite class="quote__author">
                     Дарья
-                    <span class="quote__add">
+                    <span class="quote__description">
                       Ценитель вкусной еды
                     </span>
                   </cite>
@@ -410,15 +413,15 @@
               </blockquote>
             </div>
           </li>
-          <li class="reviews__item">
-            <img class="reviews__photo" src="images/img/girl.jpg" width="300" height="300" alt="девушка с гамбургером">
-            <div class="reviews__content">
+          <li class="customer-reviews__item">
+            <img class="customer-reviews__photo" src="images/img/girl.jpg" width="300" height="300" alt="девушка с гамбургером">
+            <div class="customer-reviews__content">
               <blockquote class="quote">
                 <p>
                   SimpleFood - одна из лучших служб доставки продуктов из ресторанов в городе. Очень удобный сайт и приложение. Их доставщики очень вежливы и пунктуальны. Компания часто проводит акции и дарит скидки на доставку - однозначно рекомендую!
                   <cite class="quote__author">
                     Дарья
-                    <span class="quote__add">
+                    <span class="quote__description">
                       Ценитель вкусной еды
                     </span>
                   </cite>
@@ -426,15 +429,15 @@
               </blockquote>
             </div>
           </li>
-          <li class="reviews__item">
-            <img class="reviews__photo" src="images/img/girl.jpg" width="300" height="300" alt="девушка с гамбургером">
-            <div class="reviews__content">
+          <li class="customer-reviews__item">
+            <img class="customer-reviews__photo" src="images/img/girl.jpg" width="300" height="300" alt="девушка с гамбургером">
+            <div class="customer-reviews__content">
               <blockquote class="quote">
                 <p>
                   SimpleFood - одна из лучших служб доставки продуктов из ресторанов в городе. Очень удобный сайт и приложение. Их доставщики очень вежливы и пунктуальны. Компания часто проводит акции и дарит скидки на доставку - однозначно рекомендую!
                   <cite class="quote__author">
                     Дарья
-                    <span class="quote__add">
+                    <span class="quote__description">
                       Ценитель вкусной еды
                     </span>
                   </cite>
@@ -460,12 +463,12 @@
             </div>
             <ul class="mobile-app__list">
               <li class="mobile-app__item">
-                <a class="mobile-app__link" href="#" target="blank">
+                <a class="mobile-app__link" href="#" target="_blank">
                   <img class="mobile-app__img" src="images/icons/store.svg" width="120" height="40" alt="скачать через app store">
                 </a>
               </li>
               <li class="mobile-app__item">
-                <a class="mobile-app__link" href="#" target="blank">
+                <a class="mobile-app__link" href="#" target="_blank">
                   <img class="mobile-app__img" src="images/icons/google.svg" width="135" height="40" alt="скачать через google play">
                 </a>
               </li>
@@ -481,8 +484,8 @@
     <div class="container">
       <div class="footer__inner">
         <div class="footer__connection">
-          <a class="footer__logo" href="#">
-            <img class="footer__img" src="images/logo.svg" width="200" height="39" alt="логотип симпл фуд">
+          <a class="logo logo__footer" href="#">
+            <img class="logo__img" src="images/logo.svg" width="200" height="39" alt="логотип SimpleFood">
           </a>
           <form class="form">
             <label class="form__info"><span class="sr-only">введите ваш email</span>
@@ -495,30 +498,6 @@
               Подписаться
             </button>
           </form>
-        </div>
-        <div class="contacts contacts__mobile">
-          <address class="contacts__address">
-            <p class="contacts__text contacts__text--location">ул. Смирнова 2/3</p>
-            <a class="contacts__phone contacts__phone--calling" href="tel:79068057043">79068057043</a>
-            <a class="contacts__post contacts__post--message" href="mailto:support@sfood.com">support@sfood.com</a>
-          </address>
-          <ul class="contacts__social">
-            <li class="contacts__contact">
-              <a class="contacts__links" href="#" style="background-image: url('images/icons/facebook.svg');" target="blank">
-                <span class=" sr-only">фэйсбук</span>
-              </a>
-            </li>
-            <li class="contacts__contact">
-              <a class="contacts__links" href="#" style="background-image: url('images/icons/twitter.svg');" target="blank">
-                <span class="sr-only">твиттер</span>
-              </a>
-            </li>
-            <li class="contacts__contact">
-              <a class="contacts__links" href="#" style="background-image: url('images/icons/instagram.svg');" target="blank">
-                <span class="sr-only">инстаграмм</span>
-              </a>
-            </li>
-          </ul>
         </div>
         <nav class="footer__menu">
           <ul class="footer__list">
@@ -572,17 +551,17 @@
           </address>
           <ul class="contacts__social">
             <li class="contacts__contact">
-              <a class="contacts__links" href="#" style="background-image: url('images/icons/facebook.svg');" target="blank">
+              <a class="contacts__links" href="#" style="background-image: url('images/icons/facebook.svg');" target="_blank">
                 <span class=" sr-only">фэйсбук</span>
               </a>
             </li>
             <li class="contacts__contact">
-              <a class="contacts__links" href="#" style="background-image: url('images/icons/twitter.svg');" target="blank">
+              <a class="contacts__links" href="#" style="background-image: url('images/icons/twitter.svg');" target="_blank">
                 <span class="sr-only">твиттер</span>
               </a>
             </li>
             <li class="contacts__contact">
-              <a class="contacts__links" href="#" style="background-image: url('images/icons/instagram.svg');" target="blank">
+              <a class="contacts__links" href="#" style="background-image: url('images/icons/instagram.svg');" target="_blank">
                 <span class="sr-only">инстаграмм</span>
               </a>
             </li>
