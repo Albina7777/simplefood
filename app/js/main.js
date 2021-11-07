@@ -8,7 +8,7 @@ $(function(){
       
   var mixer = mixitup('.popular-product__content'); 
 
-  $('.reviews__inner').slick({
+  $('.customer-reviews__inner').slick({
     dots: true,
     infinite: false,
     prevArrow: '<button type="button" class="slick-arrow slick-arrow--prev"><svg><use xlink:href="images/sprite.svg#arrow-prev"></use></svg></button>',
@@ -20,7 +20,7 @@ $(function(){
     }}]      
   });
 
- $(".best-restauran__content").slick({
+ $(".best-restaurant__content").slick({
   dots: true,
   infinite: false,
   prevArrow: false,
