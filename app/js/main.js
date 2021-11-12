@@ -64,11 +64,13 @@ $inputTo.on("input", function () {
     $('.burger').on('click',function(){   
       $('.burger').addClass('burger--active');
       $('.menu__mobile').addClass('menu__mobile--active');
+        $('.overlay').addClass('overlay--active');
     });
 
     $('.burger-cross').on('click',function(){   
       $('.burger').removeClass('burger--active');
-      $('.menu__mobile').removeClass('menu__mobile--active');    
+      $('.menu__mobile').removeClass('menu__mobile--active');   
+      $('.overlay').removeClass('overlay--active'); 
     });
   
    
@@ -86,31 +88,20 @@ $inputTo.on("input", function () {
     }}]      
   });
 
- $(".best-restaurant__content").slick({
-  dots: true,
-  infinite: false,
-  prevArrow: false,
-  nextArrow: false,
-  speed: 300,
-  slidesToShow: 1,
-  slidesToScroll: 1,
-   responsive: [{
-      breakpoint: 1920,
-      settings: "unslick"        
-    },
-
-    {
-      breakpoint: 768,/*почему не действует тут?*/
-      settings: {
-      slidesToShow: 2,
-      slidesToScroll: 2,
+   $(window).on('load resize', function() {
+  if ($(window).width() < 576) {
+    $('.best-restaurant__content:not(.slick-initialized)').slick({
+      centerMode: false,
+      prevArrow: false,
+      nextArrow: false,
+      dots: true,
       infinite: true,
-      }
-
-    }, {
-      breakpoint: 576,
-      settings: {    
-      infinite: true,    
-    }}]      
-  });
+      speed: 100,
+      autoplay: true,
+      slidesToShow: 1
+    });
+  } else {
+    $(".best-restaurant__content.slick-initialized").slick("unslick");
+  }
+});
 });
