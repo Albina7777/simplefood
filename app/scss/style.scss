@@ -120,12 +120,12 @@
     transition: transform 0.4s;
 
     @include tablet {
-      max-width: 750px;
+      max-width: 700px;
     }
 
     @include mobile {
       padding-top: 80px;
-      max-width: 300px;
+      max-width: 350px;
     }
 
     &--active {
@@ -148,8 +148,7 @@
     border-radius: 3px;
   }
 
-  &__one,
-  &__two {
+  &__line {
     content: "";
     position: absolute;
     display: block;
@@ -157,9 +156,20 @@
     height: 2px;
     background-color: $darkBlue-900;
     left: 7px;
+    transform: rotate(-45deg);
+
+    &::before {
+      content: "";
+      display: block;
+      width: 30px;
+      height: 2px;
+      transform: rotate(-85deg);
+      background-color: $darkBlue-900;
+      position: absolute;
+    }
   }
 
-  &__one {
+  /*&__one {
     top: 21px;
     transform: rotate(45deg);
   }
@@ -167,7 +177,7 @@
   &__two {
     bottom: 20px;
     transform: rotate(-45deg);
-  }
+  }*/
 }
 
 .burger {
@@ -188,7 +198,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-   
+
     &::before,
     &::after,
     &__line {
@@ -319,13 +329,13 @@
   }
 }
 
-.burger--active.overlay:before {
+.overlay--active:before {
   content: '';
   display: block;
   position: fixed;
   top: 0;
   right: 0;
-  width: 20%;
+  width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 3;
@@ -822,10 +832,6 @@
       grid-template-columns: repeat(2, 1fr);
     }
 
-    @include mobile {
-      display: flex;
-    }
-
     &__item {
       width: 345px;
     }
@@ -846,7 +852,7 @@
   &__photo {
     margin-bottom: 15px;
     object-fit: cover;
-    /*тут это больше подходит?*/
+    margin: 0 auto;
   }
 
   &__title {
@@ -887,7 +893,7 @@
     transition: color 0.4s, background-color 0.4s, box-shadow 0.4s ease;
 
     @include mobile {
-      left: 91px;
+      left: 65%;
     }
 
     svg {
