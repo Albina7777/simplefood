@@ -64,15 +64,23 @@ $inputTo.on("input", function () {
     $('.burger').on('click',function(){   
       $('.burger').addClass('burger--active');
       $('.menu__mobile').addClass('menu__mobile--active');
-        $('.overlay').addClass('overlay--active');
+      $('.overlay').addClass('overlay--active');
     });
 
     $('.burger-cross').on('click',function(){   
       $('.burger').removeClass('burger--active');
       $('.menu__mobile').removeClass('menu__mobile--active');   
       $('.overlay').removeClass('overlay--active'); 
+      $('.filter').removeClass('filter--active'); 
+      $('.overlay-catalog').removeClass('overlay-catalog--active');  
     });
-  
+
+      $('.catalog__burger').on('click',function(){   
+      $('.catalog__burger').addClass('catalog__burger--active');
+      $('.filter').addClass('filter--active');  
+      $('.overlay-catalog').addClass('overlay-catalog--active');   
+    });
+
    
   var mixer = mixitup('.popular-product__content'); 
 
@@ -90,7 +98,7 @@ $inputTo.on("input", function () {
 
    $(window).on('load resize', function() {
   if ($(window).width() < 576) {
-    $('.best-restaurant__content:not(.slick-initialized)').slick({
+    $('.best-restaurant__content, .discounts__content:not(.slick-initialized)').slick({
       centerMode: false,
       prevArrow: false,
       nextArrow: false,
@@ -102,6 +110,7 @@ $inputTo.on("input", function () {
     });
   } else {
     $(".best-restaurant__content.slick-initialized").slick("unslick");
+    $(".discounts__content.slick-initialized").slick("unslick");
   }
 });
 });
