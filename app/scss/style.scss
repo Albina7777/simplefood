@@ -494,8 +494,8 @@
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     margin-bottom: 45px;
-
-
+    padding: 2px;
+    
     @include mobile {
       margin-bottom: 8px;
     }
