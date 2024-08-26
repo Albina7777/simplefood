@@ -18,6 +18,14 @@ function browsersync() {
   })
 }
 
+var gulp = require('gulp');
+var ghPages = require('gulp-gh-pages');
+ 
+gulp.task('deploy', function() {
+  return gulp.src('./dist/**/*')
+    .pipe(ghPages());
+});
+
 const svgSprites = () => {
   return src('app/images/svg/*.svg')
   .pipe(svgSprite({
